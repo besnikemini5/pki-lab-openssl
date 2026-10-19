@@ -1,0 +1,4 @@
+# Private keys never leave this machine
+*.key
+# OpenSSL serial number files
+*.srl
