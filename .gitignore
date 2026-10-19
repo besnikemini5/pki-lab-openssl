@@ -2,3 +2,4 @@
 *.key
 # OpenSSL serial number files
 *.srl
+*.old

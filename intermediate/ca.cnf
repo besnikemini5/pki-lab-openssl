@@ -1,0 +1,17 @@
+[ ca ]
+default_ca = issuing_ca
+
+[ issuing_ca ]
+dir              = ./intermediate
+database         = $dir/index.txt
+new_certs_dir    = $dir/newcerts
+certificate      = $dir/int.crt
+private_key      = $dir/int.key
+serial           = $dir/int.srl
+crlnumber        = $dir/crlnumber
+default_md       = sha256
+default_crl_days = 30
+policy           = policy_any
+
+[ policy_any ]
+commonName = supplied

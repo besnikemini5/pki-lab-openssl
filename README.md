@@ -22,3 +22,16 @@ Errors reproduced on purpose in this lab, with cause, diagnosis and fix:
 ## Private keys
 
 Private keys (`*.key`) are excluded with `.gitignore`. Only public certificates, requests and documentation are published. A leaked CA private key would let anyone issue certificates the PKI trusts.
+
+## Part 2: Revocation
+
+The Issuing CA was set up with an OpenSSL CA database (`intermediate/ca.cnf`, `index.txt`, `crlnumber`). The user certificate was revoked with reason Key Compromise (as if a smart card were lost), and a CRL was published (`intermediate/int.crl`, valid 30 days).
+
+- User certificate checked against the CRL: `certificate revoked`
+- Server certificate checked against the CRL: `OK`
+
+More troubleshooting notes:
+
+- [Certificate revoked](troubleshooting/04-certificate-revoked.md)
+- [CRL required but not available](troubleshooting/05-crl-not-available.md)
+- [Root CA CRL missing (full chain check)](troubleshooting/06-root-crl-missing.md)
